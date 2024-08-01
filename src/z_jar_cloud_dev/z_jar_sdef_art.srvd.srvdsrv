@@ -1,0 +1,4 @@
+@EndUserText.label: 'Exponer CDS Arte'
+define service Z_JAR_sdef_ART {
+  expose Z_JAR_Cds_art;
+}

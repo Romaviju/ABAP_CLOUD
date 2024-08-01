@@ -1,0 +1,80 @@
+@Metadata.layer: #CORE
+
+@UI.headerInfo: {
+    typeName: 'Panini',
+    typeNamePlural: 'Articulos',
+    typeImageUrl: '',
+    imageUrl: 'Url',
+    title: {
+        type: #STANDARD,
+        label: '',
+        iconUrl: '',
+        criticality: '',
+        criticalityRepresentation: #WITHOUT_ICON,
+        value: '',
+        valueQualifier: '',
+        targetElement: '',
+        url: ''
+    },
+    description: {
+        type: #STANDARD,
+        label: '',
+        iconUrl: '',
+        criticality: '',
+        criticalityRepresentation: #WITHOUT_ICON,
+        value: '',
+        valueQualifier: '',
+        targetElement: '',
+        url: ''
+    }
+}
+
+annotate entity Z_JAR_Cds_art with
+{
+
+  @UI.facet: [{ id: 'DetArt',
+                label: 'Detalle Articulo',
+                type: #COLLECTION,
+                position: 10
+              },
+              { id: 'Art',
+                parentId: 'DetArt',
+                label: 'Detalles',
+                type: #FIELDGROUP_REFERENCE,
+                targetQualifier: 'DetArt',
+                position: 10
+              }
+             ]
+
+//  @UI.hidden: true
+//  client;
+
+  @UI.lineItem: [{ position: 10,
+                   importance: #HIGH }]
+  Id;
+
+  @UI.lineItem: [{ position: 20,
+                   importance: #HIGH }]
+  Descr;
+
+  @UI.lineItem: [{ position: 30,
+                   importance: #HIGH }]
+  Stock;
+
+  @UI.lineItem: [{ position: 40,
+                   importance: #HIGH }]
+  status;
+
+  @UI.fieldGroup: [{ qualifier: 'DetArt',
+                     position: 10 }]
+  Ldesc;
+
+  @UI.fieldGroup: [{ qualifier: 'DetArt',
+                    position: 20 }]
+  Color;
+
+  @UI.fieldGroup: [{ qualifier: 'DetArt',
+                    position: 30 }]
+  Piezas;
+
+}
